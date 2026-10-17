@@ -14,7 +14,7 @@ clock = time.Clock()
 FPS = 60
 speed = 7
 
-ont.init()
+font.init()
 style = font.SysFont('Arial', 36)
 
 class GameSprite(sprite.Sprite):
