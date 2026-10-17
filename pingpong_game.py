@@ -29,20 +29,32 @@ class GameSprite(sprite.Sprite):
     def reset(self):
         window.blit(self.image, self.rect)
 
-  class Player(GameSprite):
+  class Player1(GameSprite):
     def __init__(self, player_image, player_x, player_y, player_speed):
         
     def update(self):
         keys = key.get_pressed()
 
-        if keys[K_UP] and self.rect.left > 0:
+        if keys[K_w] and self.rect.left > 0:
             self.rect.x -= self.speed
 
-        if keys[K_DOWN] and self.rect.right < win_width:
+        if keys[K_s] and self.rect.right < win_width:
             self.rect.x += self.speed
 
-player1 = Player("Alien1.png", 150, 425, speed)
-player2 = Player("Alien2.png", 150, 200, speed)
+class Player2(GameSprite):
+    def __init__(self, player_image, player_x, player_y, player_speed):
+        
+    def update(self):
+        keys = key.get_pressed()
+
+        if keys[K_i] and self.rect.left > 0:
+            self.rect.x -= self.speed
+
+        if keys[K_k] and self.rect.right < win_width:
+            self.rect.x += self.speed
+
+player1 = Player1("Alien1.png", 150, 425, speed)
+player2 = Player2("Alien2.png", 150, 200, speed)
 
 while game:
     for e in event.get():
