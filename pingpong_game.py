@@ -6,6 +6,7 @@ win_height = 500
 
 window = display.set_mode((win_width, win_height))
 display.set_caption('Space Shoot')
+background = transform.scale(image.load("galaxy.jpg"), (win_width, win_height))
 
 game = True
 final = False
@@ -40,4 +41,23 @@ class GameSprite(sprite.Sprite):
         if keys[K_DOWN] and self.rect.right < win_width:
             self.rect.x += self.speed
 
+player1 = Player("Alien1.png", 150, 425, speed)
+player2 = Player("Alien2.png", 150, 200, speed)
 
+while game:
+    for e in event.get():
+        if e.type == QUIT:
+            game = False
+            if not final:
+                window.blit(background, (0, 0))
+                player1.update()
+                player2.update()
+                player1.reset()
+                player2.reset()
+    display.update()
+    clock.tick(FPS)
+quit()
+
+
+
+                 
