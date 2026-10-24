@@ -1,4 +1,3 @@
-
 from pygame import *
 
 win_width = 700
